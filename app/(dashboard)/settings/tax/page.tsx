@@ -5,7 +5,6 @@ import EmbeddedComponentContainer from '@/app/components/EmbeddedComponentContai
 import {
   ConnectTaxSettings,
   ConnectTaxRegistrations,
-  ConnectTaxThresholdMonitoring,
 } from '@stripe/react-connect-js';
 
 export default function Tax() {
@@ -28,16 +27,6 @@ export default function Tax() {
         </p>
         <EmbeddedComponentContainer>
           <ConnectTaxRegistrations />
-        </EmbeddedComponentContainer>
-      </Container>
-      <Container>
-        <h1 className="text-xl font-semibold">Threshold Monitoring</h1>
-        <p className="text-subdued">
-          Sales tracked by tax location. Locations where thresholds have been
-          exceeded may require registering to collect taxes.
-        </p>
-        <EmbeddedComponentContainer>
-          <ConnectTaxThresholdMonitoring />
         </EmbeddedComponentContainer>
       </Container>
     </>

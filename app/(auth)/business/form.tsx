@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import {Input} from '@/components/ui/input';
-import {ChevronUp, ChevronDown, ArrowRight, Loader2} from 'lucide-react';
+import {ArrowRight, Loader2} from 'lucide-react';
 import {businessTypes, countries} from '@/types/account';
 
 const businessTypeLabels = {
@@ -156,7 +156,6 @@ const formSchema = z.object({
 
 export default function BusinessDetailsForm({email}: {email: string}) {
   const router = useRouter();
-  const [showMoreOptions, setShowMoreOptions] = React.useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -182,8 +181,6 @@ export default function BusinessDetailsForm({email}: {email: string}) {
       console.error('An error occured', error);
     }
   };
-
-  const formValues = form.getValues();
 
   return (
     <Form {...form}>
@@ -273,16 +270,6 @@ export default function BusinessDetailsForm({email}: {email: string}) {
               )}
             />
           </div>
-          <Button
-            variant="ghost"
-            type="button"
-            className="self-start px-2 py-1"
-            onClick={() => setShowMoreOptions(!showMoreOptions)}
-          >
-            <h3>Show more options</h3>
-            {showMoreOptions && <ChevronUp className="ml-2" size={20} />}
-            {!showMoreOptions && <ChevronDown className="ml-2" size={20} />}
-          </Button>
 
           <div>
             <Button

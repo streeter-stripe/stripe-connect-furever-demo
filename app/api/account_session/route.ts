@@ -41,7 +41,6 @@ export async function POST(req: NextRequest) {
         account_onboarding: {
           enabled: true,
         },
-        payment_method_settings: {enabled: true},
         documents: {enabled: true},
         notification_banner: {
           enabled: true,
@@ -50,9 +49,6 @@ export async function POST(req: NextRequest) {
           enabled: true,
         },
         tax_registrations: {
-          enabled: true,
-        },
-        tax_threshold_monitoring: {
           enabled: true,
         },
       },

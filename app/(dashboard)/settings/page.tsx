@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import {
-  ConnectPaymentMethodSettings,
   ConnectAccountManagement,
   ConnectNotificationBanner,
 } from '@stripe/react-connect-js';
@@ -94,16 +93,6 @@ export default function Settings() {
             <ConnectAccountManagement />
           </EmbeddedComponentContainer>
         </div>
-      </Container>
-
-      <Container>
-        <header className="mb-5 ml-2">
-          <h1 className="text-xl font-semibold">Payment methods</h1>
-          <h2 className="text-subdued">Add and manage your payment methods.</h2>
-        </header>
-        <EmbeddedComponentContainer>
-          <ConnectPaymentMethodSettings />
-        </EmbeddedComponentContainer>
       </Container>
     </>
   );
