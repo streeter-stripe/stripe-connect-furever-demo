@@ -1,13 +1,8 @@
-import {Button} from '@/components/ui/button';
 import Image from 'next/image';
 import Container from '@/app/components/Container';
 import pets from '@/app/data/pets.json';
 
-import {
-  Plus as PlusIcon,
-  Phone as PhoneIcon,
-  Mail as EmailIcon,
-} from 'lucide-react';
+import {Phone as PhoneIcon, Mail as EmailIcon} from 'lucide-react';
 
 const shuffle = (array: object[]) => {
   for (let i = array.length - 1; i > 0; i--) {

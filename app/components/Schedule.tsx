@@ -1,8 +1,7 @@
 import schedule from '@/app/data/schedule.json';
-import Container from '@/app/components/Container';
 import Image from 'next/image';
 import {Badge} from '@/components/ui/badge';
-import {ChevronLeft, ChevronRight, ChevronDown} from 'lucide-react';
+import {ChevronDown} from 'lucide-react';
 
 const SCHEDULE_HEIGHT = 1440;
 const MINUTES_IN_BUSINESS_DAY = 600;

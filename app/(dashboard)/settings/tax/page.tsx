@@ -17,7 +17,7 @@ export default function Tax() {
           Configure these settings to automatically calculate and collect tax on
           your payments.
         </p>
-        <EmbeddedComponentContainer componentName="TaxSettings">
+        <EmbeddedComponentContainer>
           <ConnectTaxSettings />
         </EmbeddedComponentContainer>
       </Container>
@@ -26,7 +26,7 @@ export default function Tax() {
         <p className="text-subdued">
           Locations where you have a registration, and want to collect taxes.
         </p>
-        <EmbeddedComponentContainer componentName="TaxRegistrations">
+        <EmbeddedComponentContainer>
           <ConnectTaxRegistrations />
         </EmbeddedComponentContainer>
       </Container>
@@ -36,7 +36,7 @@ export default function Tax() {
           Sales tracked by tax location. Locations where thresholds have been
           exceeded may require registering to collect taxes.
         </p>
-        <EmbeddedComponentContainer componentName="TaxThresholdMonitoring">
+        <EmbeddedComponentContainer>
           <ConnectTaxThresholdMonitoring />
         </EmbeddedComponentContainer>
       </Container>

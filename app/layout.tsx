@@ -4,9 +4,7 @@ import {Inter as FontSans} from 'next/font/google';
 import {cn} from '@/lib/utils';
 import './globals.css';
 import NextAuthProvider from './auth';
-import DebugMenu from '@/app/components/debug/DebugMenu';
 import {SettingsProvider} from '@/app/contexts/settings';
-import {EmbeddedComponentBorderProvider} from '@/app/hooks/EmbeddedComponentBorderProvider';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -30,12 +28,7 @@ export default function RootLayout({
         )}
       >
         <NextAuthProvider>
-          <SettingsProvider>
-            <EmbeddedComponentBorderProvider>
-              {children}
-            </EmbeddedComponentBorderProvider>
-            <DebugMenu />
-          </SettingsProvider>
+          <SettingsProvider>{children}</SettingsProvider>
         </NextAuthProvider>
       </body>
     </html>

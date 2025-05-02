@@ -18,8 +18,6 @@ declare global {
       lastName: string;
       stripeAccountId: string;
       businessName: string;
-      setup: boolean;
-      quickstartAccount: boolean;
       changedPassword: boolean;
 
       // MongoDB methods

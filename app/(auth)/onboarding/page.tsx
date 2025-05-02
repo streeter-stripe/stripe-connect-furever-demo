@@ -6,10 +6,10 @@ import React from 'react';
 
 export default function Onboarding() {
   return (
-    <EmbeddedComponentContainer componentName="AccountOnboarding">
+    <EmbeddedComponentContainer>
       <ConnectAccountOnboarding
         onExit={() => {
-          window.location.href = '/home?shownux=true';
+          window.location.href = '/home';
         }}
       />
     </EmbeddedComponentContainer>

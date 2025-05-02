@@ -37,10 +37,7 @@ export default function Settings() {
   return (
     <>
       <div className={`${showBanner ? 'flex' : 'hidden'} flex-col`}>
-        <EmbeddedComponentContainer
-          componentName="NotificationBanner"
-          className="overflow-hidden rounded-lg px-0 py-0 pb-1"
-        >
+        <EmbeddedComponentContainer className="overflow-hidden rounded-lg px-0 py-0 pb-1">
           <ConnectNotificationBanner
             onNotificationsChange={renderConditionallyCallback}
           />
@@ -93,7 +90,7 @@ export default function Settings() {
           </div>
         </div>
         <div className="flex flex-col space-y-4">
-          <EmbeddedComponentContainer componentName="AccountManagement">
+          <EmbeddedComponentContainer>
             <ConnectAccountManagement />
           </EmbeddedComponentContainer>
         </div>
@@ -104,7 +101,7 @@ export default function Settings() {
           <h1 className="text-xl font-semibold">Payment methods</h1>
           <h2 className="text-subdued">Add and manage your payment methods.</h2>
         </header>
-        <EmbeddedComponentContainer componentName="PaymentMethodSettings">
+        <EmbeddedComponentContainer>
           <ConnectPaymentMethodSettings />
         </EmbeddedComponentContainer>
       </Container>

@@ -13,7 +13,7 @@ export default function Documents() {
           Access documents and account statements.
         </h2>
       </header>
-      <EmbeddedComponentContainer componentName="Documents">
+      <EmbeddedComponentContainer>
         <ConnectDocuments />
       </EmbeddedComponentContainer>
     </Container>

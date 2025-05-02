@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import {useState} from 'react';
 import Schedule from '@/app/components/Schedule';
 import BalanceWidget from '@/app/components/BalanceWidget';
 import RecentPaymentsWidget from '@/app/components/RecentPaymentsWidget';
@@ -11,7 +10,6 @@ import {ConnectNotificationBanner} from '@stripe/react-connect-js';
 import {useSession} from 'next-auth/react';
 import {redirect} from 'next/navigation';
 import Container from '@/app/components/Container';
-import {CapitalFinancingPromotionSection} from '@/app/components/CapitalFinancingPromotionSection';
 
 export default function Dashboard() {
   const {data: session} = useSession();
@@ -20,8 +18,6 @@ export default function Dashboard() {
   }
 
   const name = session.user.stripeAccount.individual?.first_name;
-
-  const BREAKPOINT = 1190;
 
   const [showBanner, setShowBanner] = React.useState(false);
 
@@ -42,10 +38,7 @@ export default function Dashboard() {
         Woof woof, {name || 'human'}!
       </h1>
       <div className={`${showBanner ? 'flex' : 'hidden'} flex-col`}>
-        <EmbeddedComponentContainer
-          componentName="NotificationBanner"
-          className="overflow-hidden rounded-lg px-0 py-0 pb-1"
-        >
+        <EmbeddedComponentContainer className="overflow-hidden rounded-lg px-0 py-0 pb-1">
           <ConnectNotificationBanner
             onNotificationsChange={renderConditionallyCallback}
           />
@@ -58,10 +51,6 @@ export default function Dashboard() {
         <div className="-order-1 flex w-full flex-col gap-2 md:gap-4 xl:order-2 xl:w-[30%]">
           <div className="flex flex-grow flex-col gap-2 md:gap-4 md:max-xl:flex-row">
             <BalanceWidget />
-            <CapitalFinancingPromotionSection
-              layout="banner"
-              className="w-full px-5"
-            />
             <RecentPaymentsWidget />
           </div>
           <h2 className="hidden pt-4 text-lg font-bold xl:block">

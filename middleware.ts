@@ -6,10 +6,7 @@ export const config = {
     '/classes',
     '/payments',
     '/payouts',
-    '/finances',
-    '/finances/cards',
     '/settings',
     '/settings/paymentmethods',
-    '/finance',
   ],
 };

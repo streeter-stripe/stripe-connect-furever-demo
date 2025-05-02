@@ -11,7 +11,6 @@ declare module 'next-auth' {
       stripeAccount: Stripe.Account;
       businessName?: string | null;
       password?: string | null;
-      setup?: boolean;
       changedPassword: boolean;
     } & DefaultSession['user'];
   }
@@ -24,7 +23,6 @@ declare module 'next-auth/jwt' {
       name?: string | null;
       email?: string | null;
       image?: string | null;
-      setup?: boolean | null;
     };
   }
 }

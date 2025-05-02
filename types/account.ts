@@ -112,18 +112,3 @@ export const countries = [
   'VN',
 ] as const;
 export type Country = (typeof countries)[number];
-
-export const stripeDashboardTypes = ['none', 'full', 'express'] as const;
-export type StripeDashboardType = (typeof stripeDashboardTypes)[number];
-
-export const paymentLosses = ['stripe', 'application'] as const;
-export type PaymentLosses = (typeof paymentLosses)[number];
-
-export const feePayers = ['account', 'application'] as const;
-export type FeePayer = (typeof feePayers)[number];
-
-export type ControllerProperties = {
-  stripeDashboardType: StripeDashboardType;
-  paymentLosses: PaymentLosses;
-  feePayer: FeePayer;
-};

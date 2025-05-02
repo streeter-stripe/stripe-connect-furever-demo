@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Container from '@/app/components/Container';
 import FureverLogo from '@/public/furever_logo.png';
-import Stripe from '@/public/stripe-gray.svg';
 import Link from 'next/link';
 import {signOut} from 'next-auth/react';
 import {useSession} from 'next-auth/react';
@@ -54,22 +53,6 @@ export default function AuthLayout({
           {children}
         </Container>
         <SignOut />
-        <div className="mt-8 flex w-full flex-col items-center gap-2">
-          <a href="https://stripe.com" target="_blank">
-            <Image src={Stripe} alt="stripe logo" height={24} />
-          </a>
-          <p className="text-center text-sm text-subdued">
-            This site is a demo for{' '}
-            <a
-              className="border-b border-black/20 font-medium hover:border-black/70"
-              href="https://docs.stripe.com/connect/get-started-connect-embedded-components"
-              target="_blank"
-            >
-              Stripe Connect embedded components
-            </a>
-            . Furever is not a real product.
-          </p>
-        </div>
       </div>
     </div>
   );

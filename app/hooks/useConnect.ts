@@ -4,7 +4,7 @@ import {loadConnectAndInitialize} from '@stripe/connect-js';
 import {useSettings} from '@/app/hooks/useSettings';
 import {DarkTheme, LightTheme} from '@/app/contexts/themes/ThemeConstants';
 
-export const useConnect = (demoOnboarding: boolean) => {
+export const useConnect = () => {
   const [hasError, setHasError] = useState(false);
   const [stripeConnectInstance, setStripeConnectInstance] =
     useState<StripeConnectInstance | null>(null);
@@ -12,71 +12,14 @@ export const useConnect = (demoOnboarding: boolean) => {
   const settings = useSettings();
   const locale = settings.locale;
   const theme = settings.theme;
-  const [overlay, setOverlay] = useState(settings.overlay);
-  const [localTheme, setTheme] = useState(settings.theme);
-
-  const [localLocale, setLocalLocale] = useState(settings.locale);
-
-  useEffect(() => {
-    if (locale === localLocale) {
-      return;
-    }
-
-    let newAccountSessionRequired: boolean = false;
-
-    switch (locale) {
-      case 'fr-FR':
-        newAccountSessionRequired = true;
-        break;
-      case 'zh-Hant-HK':
-      case 'en-GB':
-        if (localLocale === 'zh-Hant-HK' || localLocale === 'en-GB') {
-          // No need to get a new account session here
-        } else {
-          newAccountSessionRequired = true;
-        }
-        break;
-      default:
-        if (
-          localLocale &&
-          ['fr-FR', 'zh-Hant-HK', 'en-GB'].includes(localLocale)
-        ) {
-          // We need a new account session
-          newAccountSessionRequired = true;
-        }
-
-        break;
-    }
-
-    if (locale !== localLocale) {
-      setLocalLocale(locale);
-    }
-
-    if (theme !== localTheme) {
-      setTheme(theme);
-    }
-
-    if (demoOnboarding && newAccountSessionRequired) {
-      setStripeConnectInstance(null);
-    }
-  }, [locale, localLocale, demoOnboarding, theme, localTheme]);
+  const [overlay, _] = useState(settings.overlay);
 
   const fetchClientSecret = useCallback(async () => {
-    if (demoOnboarding) {
-      console.log('Fetching client secret for demo onboarding');
-    }
-    const data = demoOnboarding
-      ? {
-          demoOnboarding: true,
-          locale,
-        }
-      : {};
-
     // Fetch the AccountSession client secret
     const response = await fetch('/api/account_session', {
       method: 'POST',
-      body: JSON.stringify(data),
     });
+
     if (!response.ok) {
       // Handle errors on the client side here
       const {error} = await response.json();
@@ -88,7 +31,7 @@ export const useConnect = (demoOnboarding: boolean) => {
       setHasError(false);
       return clientSecret;
     }
-  }, [demoOnboarding, locale]);
+  }, []);
 
   const appearanceVariables = useMemo(
     () => (theme === 'dark' ? DarkTheme : LightTheme),
@@ -116,12 +59,6 @@ export const useConnect = (demoOnboarding: boolean) => {
         fetchClientSecret: async () => {
           return await fetchClientSecret();
         },
-        metaOptions: {
-          flagOverrides: {
-            // Hide testmode stuff
-            enable_sessions_demo: true,
-          },
-        },
       } as any);
 
       setStripeConnectInstance(instance);
@@ -130,7 +67,6 @@ export const useConnect = (demoOnboarding: boolean) => {
     stripeConnectInstance,
     locale,
     fetchClientSecret,
-    demoOnboarding,
     appearanceVariables,
     overlay,
   ]);

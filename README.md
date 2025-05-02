@@ -11,11 +11,11 @@ FurEver is a vertical SaaS grooming platform for pet salons to manage their e2e 
 FurEver showcases the integration between a platform's website, [Stripe Connect](https://stripe.com/connect), and [Stripe Connect embedded components](https://docs.stripe.com/connect/get-started-connect-embedded-components). Users sign up within the platform's website and through the process, a corresponding Stripe unified account is created with the following configuration:
 
 - Stripe owns loss liability
-- Platform owns pricing
+- Stripe owns pricing
 - Stripe is onboarding owner
-- The connected account has no access to the Stripe dashboard
+- The connected account has access to a Stripe dashboard, and to embedded components
 
-The user will then onboard with Stripe via embedded onboarding. Thereafter, Connect embedded components will provide the UI surfaces for account management and dashboard UI elements with just a few lines of code. The demo website also uses the Stripe API to create test payments and payouts. This app also contains a basic authentication system.
+The user will then onboard with Stripe via embedded onboarding. Thereafter, Connect embedded components will provide the UI surfaces for account management and dashboard UI elements with just a few lines of code. This app also contains a basic authentication system.
 
 FurEver makes use of the following [Connect embedded components](https://docs.stripe.com/connect/supported-embedded-components):
 
@@ -27,13 +27,6 @@ FurEver makes use of the following [Connect embedded components](https://docs.st
 - `<ConnectDocuments />` displays a list of tax invoice documents.
 - `<ConnectTaxSettings />` allows users to [set up Stripe Tax](https://docs.stripe.com/tax/set-up).
 - `<ConnectTaxRegistrations />` allows users to control their tax compliance settings.
-
-Additionally, the following preview components are also used:
-
-- `<ConnectCapitalOverview />` **preview** allows users to check their eligibility for financing, get an overview of their in-progress financing, and access the reporting page to review paydown transactions.
-- `<ConnectFinancialAccount />` **preview** renders a view of an individual [Financial Account](https://docs.stripe.com/api/treasury/financial_accounts)
-- `<ConnectFinancialAccountTransactions />` **preview** provides a list of transactions associated with a financial account.
-- `<ConnectIssuingCardsList />` **preview** provides a list of all the cards issued.
 
 ### Architecture
 

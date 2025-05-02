@@ -151,11 +151,6 @@ export default function LandingPage() {
                 title="Accept payments"
                 description="Take credit card and bank payments, track all your transactions, and get paid out faster."
               />
-              <Card
-                icon={<ReceiptText color="var(--accent)" />}
-                title="Manage your finances"
-                description="Get access to banking, instant financing, issue credit cards, and view transactions."
-              />
             </div>
           </div>
         </div>
@@ -236,49 +231,6 @@ export default function LandingPage() {
               />
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="fixed bottom-0 right-[50%] flex w-full translate-x-2/4 flex-col gap-3 bg-gradient-to-tr from-[#9160F1] to-[#11DFD4] px-2 py-3 shadow-xl sm:bottom-5 sm:w-[calc(100%-24px)] sm:flex-row sm:rounded-lg sm:px-6 lg:w-[1000px]">
-        <div className="flex flex-1 flex-col sm:flex-row sm:items-center sm:gap-6">
-          <a href="https://stripe.com" target="_blank">
-            <Image
-              src={Stripe}
-              alt="stripe logo"
-              className="hidden max-h-[20px] sm:block"
-              color="var(--accent)"
-            />
-          </a>
-          <p className="text-sm text-white">
-            This site is a demo for{' '}
-            <a
-              className="border-b border-white/60 text-white transition hover:border-white/90"
-              href="https://docs.stripe.com/connect/get-started-connect-embedded-components"
-              target="_blank"
-            >
-              Stripe Connect embedded components
-            </a>
-            . Furever is not a real product.
-          </p>
-        </div>
-        <div className="flex justify-between">
-          <a href="https://stripe.com" target="_blank">
-            <Image
-              src={Stripe}
-              alt="stripe logo"
-              className="max-h-[20px] sm:hidden"
-              color="var(--accent)"
-            />
-          </a>
-          <a
-            className="flex items-center gap-1 text-sm font-medium text-white transition hover:opacity-80 sm:text-base"
-            href="https://github.com/stripe/stripe-connect-furever-demo"
-            target="_blank"
-          >
-            View on GitHub
-            <ArrowRight size={16} />
-          </a>
         </div>
       </div>
     </div>

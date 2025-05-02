@@ -2,7 +2,6 @@ import Link from 'next/link';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {Sparkles, KeyRound, Pencil} from 'lucide-react';
 import Form from './form';
-import QuickstartButton from '@/app/components/QuickstartButton';
 import {getServerSession} from 'next-auth';
 import {redirect} from 'next/navigation';
 
@@ -60,7 +59,6 @@ export default async function Signup() {
                 You can update the username and password to something memorable.
               </p>
             </div>
-            <QuickstartButton />
           </TabsContent>
         </Tabs>
       </div>

@@ -42,7 +42,6 @@ const EditAccountButton = () => {
     }
 
     const email = session?.user?.email;
-    const password = session?.user?.password;
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {

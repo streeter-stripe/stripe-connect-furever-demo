@@ -28,9 +28,7 @@ const SalonSchema = new Schema<Express.Request['user']>({
   // Can be no_dashboard_soll, no_dashboard_poll, dashboard_soll. Default is no_dashboard_soll
   accountConfig: String,
   businessName: String,
-  quickstartAccount: Boolean,
   changedPassword: Boolean,
-  setup: Boolean,
 });
 
 // Check the email address to make sure it's unique (no existing salon with that address).
@@ -77,10 +75,8 @@ SalonSchema.methods.validatePassword = function (password) {
 // Pre-save hook to define some default properties for salons.
 SalonSchema.pre('save', function (next) {
   // Make sure the password is hashed before being stored.
-  if (this.isModified('password') && !this.quickstartAccount) {
+  if (this.isModified('password')) {
     this.password = this.generateHash(this.password);
-  } else if (this.quickstartAccount) {
-    this.password = this.password;
   }
   next();
 });
