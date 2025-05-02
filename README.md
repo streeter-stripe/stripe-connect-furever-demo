@@ -91,3 +91,17 @@ Then, trigger a test event with:
 ```
 stripe trigger payment_intent.succeeded
 ```
+
+#### Setting up in Vercel
+
+The following environment variables should be configured in Vercel:
+
+- `STRIPE_SECRET_KEY`: your [Stripe secret key](https://dashboard.stripe.com/apikeys) (ex. `sk_test_abc`)
+- `STRIPE_PUBLIC_KEY`: your [Stripe publishable key](https://dashboard.stripe.com/apikeys) (ex. `pk_test_abc`)
+- `STRIPE_WEBHOOK_SECRET`: your Stripe webhook secret (ex. `whsec_abc`)
+- `NEXT_PUBLIC_STRIPE_PUBLIC_KEY`: an alias to `STRIPE_PUBLIC_KEY`
+- `APP_NAME`: Something like Furever
+- `NEXTAUTH_URL`: The [canonical URL for your site](https://next-auth.js.org/configuration/options)
+- `NEXTAUTH_SECRET`: The secret to hash your passwords (ex. `X-s_6PdEeTNWvNsUfyEvQAVFr`)
+- `SECRET`: an alias to `NEXTAUTH_SECRET`
+- `MONGO_URI`: A url to your Mongo DB (ex. `mongodb+srv://user:pass@cluster.mongodb.net/dbname?options`)
